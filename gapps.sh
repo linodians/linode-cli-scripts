@@ -11,7 +11,7 @@ if [[ -z "$1" ]]; then
 fi
 
 # Delete old records
-until linode domain -a record-list -l $1 -t MX | grep "No records to list."; do
+until linode domain -a record-list -l $1 -t MX | grep "No records match filter type."; do
 	linode domain -a record-delete -l $1 -t MX -m ""
 done
 
